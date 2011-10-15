@@ -19,9 +19,9 @@ License: http://creativecommons.org/licenses/MIT/
 <head>
 <meta charset="utf-8">
 
-<title>320 and Up Version: 1</title>
-<meta name="description" content="">
-<meta name="author" content="">
+<title>Math Facts</title>
+<meta name="description" content="basic addition practice">
+<meta name="author" content="James Andersen">
 
 <!-- http://t.co/dKP3o1e -->
 <meta name="HandheldFriendly" content="True">
@@ -66,21 +66,32 @@ License: http://creativecommons.org/licenses/MIT/
 <body class="clearfix">
 
 <header role="banner">
-<h1>320 and Up</h1>
+<h1>Math Facts</h1>
 </header>
 
 <div class="content clearfix">
 
 <div role="main">
+	<div id="progress">
+		<div class="correct"></div>
+		<div class="incorrect"></div>
+		<div class="correct"></div>
+		<div class="current"></div>
+		<div class="next"></div>
+		<div class="next"></div>
+		<div class="next"></div>
+		<div class="next"></div>
+		<div class="next"></div>
+	</div>
 	<div class="question">
 		<div id="problem">
-			<div id="num1">8</div>
+			<div id="num1"></div>
 			<span id="operator">+</span>
-			<span id="num2">14</span>
-			
-			
+			<span id="num2"></span>
+			<div class="line"></div>
+			<input type="number" id="response"></input>
 		</div>
-		<input type="number" id="response"></input>
+		
 	</div>
 	
 	<input id="next" type="button" value="Next" />
