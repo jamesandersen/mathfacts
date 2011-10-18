@@ -342,6 +342,59 @@ background-color : rgb(240,221,221); }
 /* 9 NAVIGATION 	============================================================================= */
 /* 10 CONTENT 		============================================================================= */
 
+div[role="main"]
+{
+	position: relative;
+}
+
+#startup
+{
+	position: absolute;
+	text-align: center;
+	height: 100%;
+	margin-left: -200px;
+	left: 50%;
+	width: 400px;
+	top: 0px;
+}
+
+#startup .mode
+{
+	margin-top: 20px;
+	font-size: 30px;
+	position: absolute;
+}
+
+#startup .mode span:first-child
+{
+	position: absolute;
+	left: 0px;
+	width: 250px;
+	font-size: 40px;
+	display: block;
+	text-align: right;
+}
+
+#startup .mode span:nth-child(2)
+{
+	position: absolute;
+	top: 40px;
+	width: 250px;
+	font-size: 20px;
+	font-style: italic;
+	text-align: right;
+}
+
+#startup .mode input[type="button"]
+{
+	position: absolute;
+	left: 250px;
+	top: 0px;
+	border-radius: 15px;
+	width: 30px;
+	height: 30px;
+}
+
 #progress
 {
 	float: left;
@@ -383,6 +436,7 @@ background-color : rgb(240,221,221); }
 {
 	position: relative;
 	border: 1px black solid;
+	visibility: hidden;
 }
 
 #problem
