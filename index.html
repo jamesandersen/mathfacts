@@ -64,48 +64,60 @@ License: http://creativecommons.org/licenses/MIT/
 </head>
 
 <body class="clearfix">
-
+	<div class="light" id="l1"></div>
+	<div class="light" id="l2"></div>
+	<div class="light" id="l3"></div>
 <header role="banner">
-<h1>Math Facts</h1>
+<h1><span>Math</span> FACTS</h1>
 </header>
 
 <div class="content clearfix">
 
 <div role="main">
+	
 	<div id="progress">
-		<div class="correct"></div>
-		<div class="incorrect"></div>
-		<div class="correct"></div>
-		<div class="current"></div>
-		<div class="next"></div>
-		<div class="next"></div>
-		<div class="next"></div>
-		<div class="next"></div>
-		<div class="next"></div>
-	</div>
-	<div class="question">
-		<div id="problem">
-			<div id="num1"></div>
-			<span id="operator">+</span>
-			<span id="num2"></span>
-			<div class="line"></div>
-			<input type="number" id="response"></input>
+		<div id="questions">
+			<div class="correct"></div>
+			<div class="incorrect"></div>
+			<div class="correct"></div>
+			<div class="current"></div>
+			<div class="next"></div>
+			<div class="next"></div>
+			<div class="next"></div>
+			<div class="next"></div>
+			<div class="next"></div>
 		</div>
-		
+		<div id="timer">
+			<div id="elapsed" ></div>
+		</div>
 	</div>
+	
+	<div id="question1" class="question">
+		<div class="problem">
+			<div class="num1"></div>
+			<span class="operator">+</span>
+			<span class="num2"></span>
+			<div class="line"></div>
+			<hr/>
+			<input type="button" class="submit roundbutton right_accent"></input>
+			<input type="number" class="response"></input>
+			
+		</div>
+	</div>
+	<input id="return" type="button" class="roundbutton" value="return" />
 	<div id="startup">
 		<div class="mode">
-			<span>Practice</span>
+			<div>Practice</div>
 			<span>work through problems with no time pressure</span>
-			<input type="button" value="Go" />
+			<input id="practice" type="button" class="roundbutton right" />
 		</div>
+		<hr/>
 		<div class="mode">
-			<span>Timed</span>
+			<div>Timed</div>
 			<span>get ready for the test</span>
-			<input type="button" value="Go" />
+			<input id="timed" type="button" class="roundbutton right" />
 		</div>
 	</div>
-	<input id="next" type="button" value="Next" />
 </div>
 
 </div>
