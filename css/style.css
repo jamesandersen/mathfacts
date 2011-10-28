@@ -392,6 +392,19 @@ background-color : rgb(240,221,221); }
 	background-image: url('../img/right_arrow_accent.png');
 }
 
+.left
+{
+	width: 43px;
+	height: 43px;
+	background-image: url('../img/left_arrow.png');
+	background-repeat: no-repeat;
+}
+
+.left:hover
+{
+	background-image: url('../img/left_arrow_accent.png');
+}
+
 .right_accent
 {
 	background-image: url('../img/right_arrow_accent.png');
@@ -595,7 +608,29 @@ div[role="main"]
 #next
 {
 	display: none;
-	
+}
+
+#results
+{
+	position: absolute;
+	text-align: center;
+	height: 100%;
+	margin-left: -100px;
+	left: 50%;
+	width: 200px;
+	height: 180px;
+	top: 50px;
+	box-shadow: 0px 0px 80px #333333;
+	border-radius: 5px;
+	background-color: rgba(245, 245, 245, 1.0);
+	display: none;
+}
+
+#results div
+{
+	margin: 20px auto 15px auto;
+	text-align: center;
+	font-size: 2em;
 }
 /* 11 MAIN 			============================================================================= */
 /* 12 COMPLEMENTARY ============================================================================= */

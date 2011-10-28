@@ -34,7 +34,6 @@ window.MF = (function()
 		mode = Modes.TIMED;
 		$('#startup').css('display', 'none');
 		$('#progress').css('visibility', 'visible');
-		//$('#return').css('visibility', 'visible');
 		$('.submit').css('visibility', 'visible');
 		$('.question').css('visibility', 'visible');
 		
@@ -73,12 +72,13 @@ window.MF = (function()
 	{
 		clearTimeout(timerId);
 		var numCorrect = $('#questions').find('.correct').length;
-		alert('Done!\n' + numCorrect + ' of ' + NUM_QUESTIONS + ' correct');
-		returnToStartup();
+		$('#results').css('display', 'block');
+		$("#results > div").html('Done!\n' + numCorrect + ' of ' + NUM_QUESTIONS + ' correct');
 	};
 	
 	var returnToStartup = function()
 	{
+		$('#results').css('display', 'none');
 		$('#return').css('visibility', 'hidden');
 		$('#progress').css('visibility', 'hidden');
 		$('#startup').css('display', 'block');
@@ -154,7 +154,8 @@ window.MF = (function()
 		$('#practice').click(startPractice);
 		$('#timed').click(startTimed);
 		$('#return').click(returnToStartup);
-	  
+		$('#done').click(returnToStartup);
+		
 		var response = $('.response');
 	  
 		response.keypress(function(event) {
