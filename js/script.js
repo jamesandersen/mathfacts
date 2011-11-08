@@ -9,13 +9,22 @@ window.MF = (function()
 		TIMED : 2
 	};
 	
+	var Operations = {
+		ADDITION : 0x1,
+		SUBTRACTION: 0x2,
+		MULTIPLICATION : 0x4,
+		DIVISION : 0x8
+	};
+	
 	var TEST_SECONDS = 120;
 	var NUM_QUESTIONS = 30;
 	
 	var maxNumber = 12;
+	var maxSubtractionNumber = 7;
 	var questionIndex = 0;
 	var currentAnswer;
 	var mode = Modes.STARTUP;
+	var operations = Operations.ADDITION | Operations.SUBTRACTION;
 	var nextQuestionId = "question1";
 	var timerId = null;
 	var testStartTime = null;
@@ -107,13 +116,44 @@ window.MF = (function()
 				$('#questions').find('div').eq(questionIndex).toggleClass('current');
 			}
 		}
-		
+		var oper = Math.floor(Math.random() * 4 + 1);
 		var num1 = Math.floor(Math.random() * maxNumber + 1);
 		var num2 = Math.floor(Math.random() * maxNumber + 1);
-		
-		currentAnswer = num1 + num2;
+		var operator = '+';
+		var ready = false;
+		while(!ready)
+		{
+			ready = true;
+			if(oper === 1 && (operations & Operations.ADDITION))
+			{
+				currentAnswer = num1 + num2;
+			}
+			else if(oper === 2 && (operations & Operations.SUBTRACTION))
+			{
+				num1 = Math.floor(Math.random() * maxSubtractionNumber + 1);
+				num2 = Math.floor(Math.random() * maxSubtractionNumber + 1);
+				var foo = num1;
+				num1 = num1 + num2
+				currentAnswer = foo;
+				operator = '-';
+			}
+			else if(oper === 3 && (operations & Operations.MULTIPLICATION))
+			{
+				operator = '*';
+			}
+			else if(oper === 4 && (operations & Operations.DIVISION))
+			{
+				operator = '/';
+			}
+			else
+			{
+				oper = Math.floor(Math.random() * 4 + 1);
+				ready = false;
+			}
+		}
 		
 		$('#' + nextQuestionId).find('.num1').text(num1);
+		$('#' + nextQuestionId).find('.operator').text(operator);
 		$('#' + nextQuestionId).find('.num2').text(num2);
 	};
 	
