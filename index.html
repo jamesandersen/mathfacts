@@ -20,7 +20,7 @@ License: http://creativecommons.org/licenses/MIT/
 <meta charset="utf-8">
 
 <title>Math Facts</title>
-<meta name="description" content="basic addition practice">
+<meta name="description" content="basic math practice; addition, subtraction, etc.">
 <meta name="author" content="James Andersen">
 
 <!-- http://t.co/dKP3o1e -->
@@ -76,33 +76,30 @@ License: http://creativecommons.org/licenses/MIT/
 <div role="main">
 	
 	<div id="progress">
-		<div id="questions">
-			<div class="correct"></div>
-			<div class="incorrect"></div>
-			<div class="correct"></div>
-			<div class="current"></div>
-			<div class="next"></div>
-			<div class="next"></div>
-			<div class="next"></div>
-			<div class="next"></div>
-			<div class="next"></div>
-		</div>
+		<div id="questions"></div>
 		<div id="timer">
-			<div id="elapsed" ></div>
+			<div id="elapsed"></div>
 		</div>
 	</div>
 	
-	<div id="question1" class="question">
-		<div class="problem">
-			<div class="num1"></div>
-			<span class="operator">+</span>
-			<span class="num2"></span>
-			<div class="line"></div>
-			<hr/>
-			<input type="button" class="submit roundbutton right_accent"></input>
-			<input type="number" class="response"></input>
-			
+	<div class="question">
+		<div id="problemContainer">
+			<div id="problem1" class="problem">
+				<div class="num1"></div>
+				<span class="operator">+</span>
+				<span class="num2"></span>
+				<div class="line"></div>
+			</div>
+			<div id="problem2" class="problem">
+				<div class="num1"></div>
+				<span class="operator">+</span>
+				<span class="num2"></span>
+				<div class="line"></div>
+			</div>
 		</div>
+		<hr/>
+		<input type="button" class="submit roundbutton right_accent"></input>
+		<input type="number" class="response"></input>
 	</div>
 	<input id="return" type="button" class="roundbutton left" />
 	<div id="startup">

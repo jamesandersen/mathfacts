@@ -557,15 +557,21 @@ div[role="main"]
 {
 	position: relative;
 	visibility: hidden;
+	width: 100%;
+}
+
+#problemContainer
+{
+	margin: 0 auto;
+	width: 130px;
+	height: 180px;
+	position: relative;
 }
 
 .problem
 {
-	position: relative;
-	margin: 0 auto;
 	width: 130px;
-	
-	
+	position: absolute;
 }
 .num1, .num2, .operator
 {
@@ -601,7 +607,7 @@ div[role="main"]
 {
 	visibility: hidden;
 	position: absolute;
-	left: 145px;
+	right: 40px;
 	top: 212px;
 }
 

@@ -25,7 +25,6 @@ window.MF = (function()
 	var currentAnswer;
 	var mode = Modes.STARTUP;
 	var operations = Operations.ADDITION | Operations.SUBTRACTION;
-	var nextQuestionId = "question1";
 	var timerId = null;
 	var testStartTime = null;
 	
@@ -152,9 +151,10 @@ window.MF = (function()
 			}
 		}
 		
-		$('#' + nextQuestionId).find('.num1').text(num1);
-		$('#' + nextQuestionId).find('.operator').text(operator);
-		$('#' + nextQuestionId).find('.num2').text(num2);
+		var question = $('.question');
+		question.find('.num1').text(num1);
+		question.find('.operator').text(operator);
+		question.find('.num2').text(num2);
 	};
 	
 	var clearResponse = function()
