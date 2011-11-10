@@ -24,9 +24,11 @@ window.MF = (function()
 	var questionIndex = 0;
 	var currentAnswer;
 	var mode = Modes.STARTUP;
+	var currentProblemIndex = 0;
 	var operations = Operations.ADDITION | Operations.SUBTRACTION;
 	var timerId = null;
 	var testStartTime = null;
+	var lastProblem = null;
 	
 	var startPractice = function()
 	{
@@ -93,6 +95,10 @@ window.MF = (function()
 		$('.question').css('visibility', 'hidden');
 		$('.submit').css('visibility', 'hidden');
 		clearTimeout(timerId);
+		
+		$('.problem').each(function(index, item){
+			resetProblem(item);
+		});
 	};
 	
 	var nextQuestion = function()
@@ -151,11 +157,30 @@ window.MF = (function()
 			}
 		}
 		
-		var question = $('.question');
-		question.find('.num1').text(num1);
-		question.find('.operator').text(operator);
-		question.find('.num2').text(num2);
+		// transition out the old problem
+		var problem = $('.problem').eq(currentProblemIndex);
+		problem.toggleClass('problemActive', false);
+		problem.toggleClass('problemOut', true);
+		lastProblem = problem;
+		setTimeout( function() { resetProblem(lastProblem.get(0)) }, 500);
+		
+		// initialize the next problem
+		currentProblemIndex = (currentProblemIndex === 0 ? 1 : 0);
+		problem = $('.problem').eq(currentProblemIndex);
+		problem.find('.num1').text(num1);
+		problem.find('.operator').text(operator);
+		problem.find('.num2').text(num2);
+		
+		// transition in the new problem
+		problem.css('-webkit-transition-duration','0.5s');
+		problem.toggleClass('problemActive', true);
 	};
+	
+	var resetProblem = function(problem) {
+		$(problem).css('-webkit-transition-duration','0s');
+		$(problem).toggleClass('problemOut', false);
+		$(problem).toggleClass('problemActive', false);
+	}
 	
 	var clearResponse = function()
 	{

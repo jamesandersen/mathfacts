@@ -568,11 +568,34 @@ div[role="main"]
 	position: relative;
 }
 
+.question > hr
+{
+	position: relative;
+	top: -10px;
+	width: 130px;
+	margin: 0 auto;
+}
+
 .problem
 {
 	width: 130px;
 	position: absolute;
+	-webkit-transition: all 0.5s ease-in-out;
+	-webkit-transform: skewx(-30deg) translatex(-150px);
+	opacity: 0;
 }
+
+.problemActive
+{
+	-webkit-transform: skewx(0deg) translatex(0px);
+	opacity: 1;
+}
+
+.problemOut
+{
+	-webkit-transform: skewx(30deg) translatex(150px);
+}
+
 .num1, .num2, .operator
 {
 	font-size: 4em;
