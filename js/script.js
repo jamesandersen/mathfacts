@@ -35,7 +35,7 @@ window.MF = (function()
 		mode = Modes.PRACTICE;
 		$('#startup').css('display', 'none');
 		$('#return').css('visibility', 'visible');
-		$('.question').css('visibility', 'visible');
+		$('.question').css('display', 'block');
 		nextQuestion();
 	};
 	
@@ -45,7 +45,7 @@ window.MF = (function()
 		$('#startup').css('display', 'none');
 		$('#progress').css('visibility', 'visible');
 		$('.submit').css('visibility', 'visible');
-		$('.question').css('visibility', 'visible');
+		$('.question').css('display', 'block');
 		
 		// setup the question progress bar
 		questionIndex = -1;
@@ -92,7 +92,7 @@ window.MF = (function()
 		$('#return').css('visibility', 'hidden');
 		$('#progress').css('visibility', 'hidden');
 		$('#startup').css('display', 'block');
-		$('.question').css('visibility', 'hidden');
+		$('.question').css('display', 'none');
 		$('.submit').css('visibility', 'hidden');
 		clearTimeout(timerId);
 		

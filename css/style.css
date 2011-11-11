@@ -556,7 +556,8 @@ div[role="main"]
 .question
 {
 	position: relative;
-	visibility: hidden;
+	/* using visibility causes issues with the transform transitions in safari*/
+	display: none;
 	width: 100%;
 }
 
@@ -588,7 +589,7 @@ div[role="main"]
 	transition: all 0.5s ease-in-out;
 	
 	-moz-transform: skewx(-30deg) translatex(-150px);
-	/* -webkit-transform: skewx(-30deg) translatex(-150px); */
+	-webkit-transform: skewx(-30deg) translatex(-150px);
 	-o-transform: skewx(-30deg) translatex(-150px);
 	-ms-transform: skewx(-30deg) translatex(-150px);
 	transform: skewx(-30deg) translatex(-150px);
@@ -598,11 +599,10 @@ div[role="main"]
 
 .problemActive
 {
-	
+	-webkit-transform: skewx(0deg) translatex(0px);
 	-moz-transform: skewx(0deg) translatex(0px);
 	-ms-transform: skewx(0deg) translatex(0px);
 	-o-transform: skewx(0deg) translatex(0px);
-	/*-webkit-transform: skewx(0deg) translatex(0px);*/
 	transform: skewx(0deg) translatex(0px);
 	
 	opacity: 1;
@@ -611,7 +611,7 @@ div[role="main"]
 .problemOut	
 {
 	-moz-transform: skewx(30deg) translatex(150px);
-	/*-webkit-transform: skewx(30deg) translatex(150px); */
+	-webkit-transform: skewx(30deg) translatex(150px);
 	-ms-transform: skewx(30deg) translatex(150px);
 	-o-transform: skewx(30deg) translatex(150px);
 	transform: skewx(30deg) translatex(150px);
