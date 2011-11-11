@@ -580,36 +580,42 @@ div[role="main"]
 {
 	width: 130px;
 	position: absolute;
+	
 	-webkit-transition: all 0.5s ease-in-out;
     -moz-transition: all 0.5s ease-in-out;
     -o-transition: all 0.5s ease-in-out;
     -ms-transition: all 0.5s ease-in-out;
 	transition: all 0.5s ease-in-out;
-	-webkit-transform: skewx(-30deg) translatex(-150px);
+	
 	-moz-transform: skewx(-30deg) translatex(-150px);
+	/* -webkit-transform: skewx(-30deg) translatex(-150px); */
 	-o-transform: skewx(-30deg) translatex(-150px);
 	-ms-transform: skewx(-30deg) translatex(-150px);
 	transform: skewx(-30deg) translatex(-150px);
+	
 	opacity: 0;
 }
 
 .problemActive
 {
-	-webkit-transform: skewx(0deg) translatex(0px);
-	-ms-transform: skewx(0deg) translatex(0px);
+	
 	-moz-transform: skewx(0deg) translatex(0px);
+	-ms-transform: skewx(0deg) translatex(0px);
 	-o-transform: skewx(0deg) translatex(0px);
+	/*-webkit-transform: skewx(0deg) translatex(0px);*/
 	transform: skewx(0deg) translatex(0px);
+	
 	opacity: 1;
 }
 
-.problemOut
+.problemOut	
 {
-	-webkit-transform: skewx(30deg) translatex(150px);
-	-ms-transform: skewx(30deg) translatex(150px);
 	-moz-transform: skewx(30deg) translatex(150px);
+	/*-webkit-transform: skewx(30deg) translatex(150px); */
+	-ms-transform: skewx(30deg) translatex(150px);
 	-o-transform: skewx(30deg) translatex(150px);
 	transform: skewx(30deg) translatex(150px);
+	
 }
 
 .num1, .num2, .operator

@@ -231,7 +231,8 @@ window.MF = (function()
 		
 		var response = $('.response');
 	  
-		response.keypress(function(event) {
+		// don't use keypress here because firefox doesn't yield a keycode
+		response.keydown(function(event) {
 		  return MF.isValidResponseKey(event.keyCode);
 		});
 	
