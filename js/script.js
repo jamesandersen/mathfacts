@@ -161,8 +161,11 @@ window.MF = (function()
 		var problem = $('.problem').eq(currentProblemIndex);
 		problem.toggleClass('problemActive', false);
 		problem.toggleClass('problemOut', true);
+		problem.css('-webkit-transform', 'skewx(30deg) translatex(150px)');
 		lastProblem = problem;
-		setTimeout( function() { resetProblem(lastProblem.get(0)) }, 500);
+		setTimeout( function() { 
+			resetProblem(lastProblem.get(0));
+		}, 500);
 		
 		// initialize the next problem
 		currentProblemIndex = (currentProblemIndex === 0 ? 1 : 0);
@@ -178,9 +181,12 @@ window.MF = (function()
 		problem.css('-ms-transition-duration','0.5s');
 		problem.css('transition-duration','0.5s');
 		problem.toggleClass('problemActive', true);
+		
+		problem.css('-webkit-transform', 'skewx(0deg) translatex(0px)');
 	};
 	
 	var resetProblem = function(problem) {
+	
 		$(problem).css('-webkit-transition-duration','0s');
 		$(problem).css('-ms-transition-duration','0s');
 		$(problem).css('-o-transition-duration','0s');
@@ -188,6 +194,8 @@ window.MF = (function()
 		$(problem).css('transition-duration','0s');
 		$(problem).toggleClass('problemOut', false);
 		$(problem).toggleClass('problemActive', false);
+		
+		$(problem).css('-webkit-transform', 'skewx(-30deg) translatex(-150px)');
 	}
 	
 	var clearResponse = function()
