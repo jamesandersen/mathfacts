@@ -39,7 +39,6 @@ module.exports = function (grunt) {
         less: {
             production: {
                 options: {
-                    paths: ["css/"],
                     yuicompress: true
                 },
                 files: {
