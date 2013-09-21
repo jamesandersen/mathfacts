@@ -1,21 +1,16 @@
-#Mobile Boilerplate http://html5boilerplate.com
+#MathFacts http://jander.me/mathfacts/
 v1.1
 
 ##Summary:
-
-A baseline for 'mobile first' web development. Read more at the wiki here: https://github.com/shichuan/mobile-html5-boilerplate/wiki
+A simple site for practicing basic addition and subtraction facts.
 
 ##License:
 
 ###Major components:
-respond.js: Public Domain<br />
-Bookmark bubble library: Apache License, Version 2.0<br />
-Web Storage Portability Layer: Apache License, Version 2.0<br />
-Modernizr: MIT/BSD license<br />
-jQuery: MIT/GPL license<br />
-HTML5Doctor CSS reset: Creative Commons 3.0 <br />
-CSS Reset Reloaded: Public Domain 
+[respond.js](https://github.com/scottjehl/Respond): [MIT License](https://github.com/scottjehl/Respond/blob/master/README.md)<br />
+[Modernizr](http://modernizr.com/): [MIT License](http://modernizr.com/license/)<br />
+[jQuery](http://jquery.com/): [MIT license](https://github.com/jquery/jquery/blob/master/MIT-LICENSE.txt)<br />
+[normalize-css](https://github.com/necolas/normalize.css): [license](https://github.com/necolas/normalize.css/blob/master/LICENSE.md)
 
 ###Everything else:
-
-The Unlicense (aka: public domain)
+[MIT License](http://opensource.org/licenses/MIT)

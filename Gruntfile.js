@@ -5,7 +5,6 @@ module.exports = function (grunt) {
     grunt.initConfig({
         // Metadata.
         pkg: grunt.file.readJSON('package.json'),
-        banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' + '<%= grunt.template.today("yyyy-mm-dd") %>\n' + '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' + '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' + ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
         // Task configuration.
         copy: {
             js: {
@@ -21,19 +20,18 @@ module.exports = function (grunt) {
                         cwd: 'bower_components/respond/',
                         src: ['respond.min.js'],
                         dest: 'js/libs/respond/'
+                    },
+                    {
+                        expand: true,
+                        cwd: 'bower_components/normalize-css/',
+                        src: ['normalize.css'],
+                        dest: 'css/',
+                        rename: function(dest, src) { 
+                            grunt.log.writeln(dest); 
+                            return dest + src.replace(/\.css/gi, '.less'); 
+                        }
                     }
                 ]
-            }
-        },
-
-        concat: {
-            options: {
-                banner: '<%= banner %>',
-                stripBanners: true
-            },
-            dist: {
-                src: ['lib/<%= pkg.name %>.js'],
-                dest: 'dist/<%= pkg.name %>.js'
             }
         },
         less: {
@@ -47,9 +45,6 @@ module.exports = function (grunt) {
             }
         },
         uglify: {
-            /*options: {
-                banner: '<%= banner %>'
-            },*/
             dist: {
                 src: 'js/app/*.js',
                 dest: 'js/app.min.js'
@@ -82,9 +77,6 @@ module.exports = function (grunt) {
             tests: {
                 src: '_test/tests/**/*.js'
             }
-        },
-        qunit: {
-            files: ['_test/**/*.html']
         },
         watch: {
             gruntfile: {
@@ -153,17 +145,14 @@ module.exports = function (grunt) {
     });
 
     // These plugins provide necessary tasks.
-    grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-qunit');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks("grunt-modernizr");
 
     // Default task.
     grunt.registerTask('default', ['less', 'copy', 'jshint:gruntfile', 'uglify']);
-    grunt.registerTask('test', ['copy', 'jshint:gruntfile', 'qunit', 'uglify']);
 
 };
