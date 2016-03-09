@@ -1,0 +1,32 @@
+<div id="progress" *ngIf="mode === Mode.TIMED">
+   <div id="questions">
+      <div *ngFor="#question of testQuestions" class="next" [ngClass]="{correct: question.isCorrect, incorrect: question.isCorrect === false, current: question === currentQuestion}"></div>
+   </div>
+   <div id="timer">
+      <div id="elapsed" [ngStyle]="{height: testProgress + '%'}"></div>
+   </div>
+</div>
+<div class="question">
+   <div id="problemContainer">
+      <div id="problem1" class="problem" [ngClass]="{active: currentQuestion === question1}">
+         <div class="num1">{{question1.num1}}</div>
+         <span class="operator">{{getOperationStr(question1.operation)}}</span>
+         <span class="num2">{{question1.num2}}</span>
+      </div>
+      <div id="problem2" class="problem" [ngClass]="{active: currentQuestion === question2}">
+         <div class="num1">{{question2.num1}}</div>
+         <span class="operator">{{getOperationStr(question2.operation)}}</span>
+         <span class="num2">{{question2.num2}}</span>
+      </div>
+   </div>
+   <hr/>
+   <input type="button" *ngIf="mode === Mode.TIMED" class="submit roundbutton right_accent" (click)="toggle()">
+   <input type="number" class="response" (keyup)="onKey($event)" [(ngModel)]="answer">
+</div>
+<input id="return" type="button" class="roundbutton left" [routerLink]="['/LaunchCmp']"  *ngIf="mode === Mode.PRACTICE" />
+<div #modal class="modal" *ngIf="mode === Mode.TIMED">
+   <h2>Results</h2>
+   <p>{{numCorrect}} of {{testQuestions.length}} correct</p>
+   <p class="sub">({{100 * (numCorrect / testQuestions.length)}} %)</p>
+   <input type="button" class="return roundbutton left" [routerLink]="['/LaunchCmp']"  *ngIf="mode === Mode.TIMED" />
+</div>
