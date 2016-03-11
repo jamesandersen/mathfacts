@@ -2,13 +2,16 @@
 
 #return {
     position: absolute;
-    top: 200px;
+    top: 20px;
+    left: 5%;
+    cursor: pointer;
 }
 
 #progress {
     position: absolute;
     top: 5px;
     height: 264px;
+    left: 5%;
     
     #questions, #timer {
         float: left;
@@ -61,7 +64,8 @@
 .question {
     position: relative;
     /* using visibility causes issues with the transform transitions in safari*/
-    width: 100%;
+    width: 90%;
+    margin: 0px 5%;
     
     & > hr {
         position: relative;

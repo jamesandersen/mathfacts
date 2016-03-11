@@ -43,16 +43,17 @@ require('./shared.less')
   // Every Angular template is first compiled by the browser before Angular runs it's compiler
   // Every Angular template is first compiled by the browser before Angular runs it's compiler
   template: `
+  <div class="container">
     <div class="light" id="l1"></div>
     <div class="light" id="l2"></div>
     <div class="light" id="l3"></div>
     <header role="banner">
-        <h1>
-            <span>Math</span>FACTS</h1>
+        <h2><span>Math</span>FACTS</h2>
     </header>
     <div class="content clearfix" role="main">
       <router-outlet></router-outlet>
     </div>
+  </div>
   `
 })
 @RouteConfig([
