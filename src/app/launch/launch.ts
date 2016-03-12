@@ -24,15 +24,17 @@ import {Mode} from '../question/question-enums';
   template: `
     <div id="startup">
         <div class="mode">
+            <input [routerLink]="['/Practice']" id="practice" type="button" class="roundbutton right" />
             <div>Practice</div>
             <span>work through problems with no time pressure</span>
-            <input [routerLink]="['/Practice']" id="practice" type="button" class="roundbutton right" />
+            
         </div>
         <hr/>
         <div class="mode">
+            <input [routerLink]="['/Timed']" id="timed" type="button" class="roundbutton right" />
             <div>Timed</div>
             <span>get ready for the test</span>
-            <input [routerLink]="['/Timed']" id="timed" type="button" class="roundbutton right" />
+            
         </div>
     </div>
   `
