@@ -10,7 +10,7 @@
     "clean:dist": "rimraf dist",
     "clean:prod": "rimraf prod",
     "predeploy": "npm run build:prod",
-    "deploy": "git subtree push --prefix prod/mathfacts origin gh-pages",
+    "deploy": "git push origin `git subtree split --prefix prod/mathfacts --onto origin/gh-pages`:gh-pages",
     "preclean:install": "npm run clean",
     "clean:install": "npm set progress=false && npm install",
     "preclean:start": "npm run clean",
