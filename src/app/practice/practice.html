@@ -21,7 +21,9 @@
    </div>
    <hr/>
    <input type="button" *ngIf="mode === Mode.TIMED" class="submit roundbutton right_accent" (click)="toggle()">
-   <input type="number" class="response" (keyup)="onKey($event)" [(ngModel)]="answer">
+   <input type="number" class="response" [ngModel]="answer"
+          (keyup.enter)="onAnswerChange()"
+          (ngModelChange)="onAnswerChange($event)">
 </div>
 <input id="return" type="button" class="roundbutton left" [routerLink]="['/LaunchCmp']"  *ngIf="mode === Mode.PRACTICE" />
 <div #modal class="modal" *ngIf="mode === Mode.TIMED">

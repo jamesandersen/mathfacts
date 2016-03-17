@@ -100,23 +100,19 @@ export class Practice implements OnInit, AfterViewInit {
          this.question1 = nextQ;
       }
       this.currentQuestion = onFirstQuestion ? this.question2 : this.question1;
-      this.answer = NaN;
+      this.answer = null;
    }
 
-   onKey(event: KeyboardEvent) {
-      if (this.isValidResponseKey(event.keyCode)) {
-         this.currentQuestion.isCorrect = this.answer === this.currentQuestion.answer;
-         if(this.currentQuestion.isCorrect || this.mode === Mode.TIMED) this.nextQuestion();
+   onAnswerChange(currentAnswer: number = null) {
+      if(currentAnswer !== null) {
+         this.answer = currentAnswer;
       }
-   }
-
-   isValidResponseKey(keyCode) {
-      return this.mode === Mode.TIMED 
-         ? keyCode === 13 // in TIMED mode only Enter is valid
-         : (keyCode >= 48 && keyCode <= 57) ||
-         (keyCode >= 96 && keyCode <= 105) ||
-         keyCode === 27 ||
-         keyCode === 8;
+      
+      this.currentQuestion.isCorrect = this.answer === this.currentQuestion.answer;
+      if ((this.mode == Mode.PRACTICE && this.currentQuestion.isCorrect) ||
+          (this.mode === Mode.TIMED && currentAnswer === null)) {
+         setTimeout(() => this.nextQuestion(), this.mode == Mode.TIMED ? 0 : 100);
+      }
    }
 
    getOperationStr(op: Operation): string {
