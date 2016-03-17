@@ -11,7 +11,7 @@ import {Mode} from './question/question-enums';
 import {Launch} from './launch/launch';
 import {Practice} from './practice/practice';
 
-require('./shared.less')
+require('./shared.less');
 
 /*
  * App Component
@@ -101,17 +101,4 @@ export class App {
       );//end http
       */
   }
-
-
 }
-
-
-
-/*
- * Please review the examples/ folder for more angular app examples
- * (The examples may not be updated as quickly. Please open an issue on github for us to update it)
- * you can change the `entry` in webpack.config to quickly view the examples
- * For help or questions please contact us at @AngularClass on twitter
- * or our chat on Slack at https://AngularClass.com/slack-join
- * or via chat on Gitter at https://gitter.im/AngularClass/angular2-webpack-starter
- */
